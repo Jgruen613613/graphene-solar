@@ -1,0 +1,2165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--
+   ______                            __
+  / ____/___  ____ ___  ____  __  __/ /____  _____
+ / /   / __ \/ __ `__ \/ __ \/ / / / __/ _ \/ ___/
+/ /___/ /_/ / / / / / / /_/ / /_/ / /_/  __/ /
+\____/\____/_/ /_/ /_/ .___/\__,_/\__/\___/_/
+                    /_/
+        Created with Perplexity Computer
+        https://www.perplexity.ai/computer
+-->
+
+<!-- Perplexity Computer Attribution — SEO Meta Tags -->
+<meta name="generator" content="Perplexity Computer">
+<meta name="author" content="Perplexity Computer">
+<meta property="og:see_also" content="https://www.perplexity.ai/computer">
+<link rel="author" href="https://www.perplexity.ai/computer">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Graphene Solar — The Next Paradigm in Solar Energy</title>
+<meta name="description" content="Graphene absorbs light across the full solar spectrum. Silicon cannot. Graphene Solar is developing graphene-based photovoltaic technology that produces 4-6x the voltage of conventional silicon cells.">
+<meta property="og:title" content="Graphene Solar — The Next Paradigm in Solar Energy">
+<meta property="og:description" content="Graphene absorbs light across the full solar spectrum. Silicon cannot. 4-6x the voltage of conventional silicon cells.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://graphene-solar.net">
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Graphene Solar",
+  "url": "https://graphene-solar.net",
+  "description": "Deep-tech solar cell company developing graphene-based photovoltaic technology",
+  "foundingDate": "2022",
+  "creator": {
+    "@type": "SoftwareApplication",
+    "name": "Perplexity Computer",
+    "url": "https://www.perplexity.ai/computer"
+  }
+}
+</script>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+
+<!-- GSAP -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js" defer></script>
+
+<style>
+/* ========== DESIGN TOKENS ========== */
+:root {
+  /* Graphene Solar Palette — "From Atom to Sun" */
+  --deep-space:    #0A0A0F;
+  --carbon:        #1A1A22;
+  --carbon-light:  #22222E;
+  --solar-gold:    #D4A017;
+  --plasma-amber:  #F5A623;
+  --quantum-white: #F0EDE6;
+  --lattice-gray:  #6B6B7B;
+  --lattice-dim:   #3A3A48;
+  --success-green: #4ADE80;
+
+  /* Spectrum */
+  --spectrum-violet: #3D1F8A;
+  --spectrum-blue:   #1A6AFF;
+  --spectrum-green:  #0FA573;
+  --spectrum-gold:   #D4A017;
+  --spectrum-red:    #C8102E;
+
+  /* Type */
+  --font-display: 'Space Grotesk', 'Inter', sans-serif;
+  --font-body:    'Inter', 'Helvetica Neue', sans-serif;
+  --font-mono:    'JetBrains Mono', 'Consolas', monospace;
+  --font-serif:   'Cormorant Garamond', 'Georgia', serif;
+
+  /* Fluid type */
+  --text-xs:   clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+  --text-sm:   clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+  --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  --text-lg:   clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+  --text-xl:   clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+  --text-2xl:  clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+  --text-3xl:  clamp(2.5rem, 1rem + 4vw, 5rem);
+  --text-hero: clamp(3rem, 0.5rem + 7vw, 8rem);
+
+  /* Spacing */
+  --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem;
+  --space-4: 1rem; --space-5: 1.25rem; --space-6: 1.5rem;
+  --space-8: 2rem; --space-10: 2.5rem; --space-12: 3rem;
+  --space-16: 4rem; --space-20: 5rem; --space-24: 6rem;
+  --space-32: 8rem;
+
+  /* Layout */
+  --content-narrow: 640px;
+  --content-default: 960px;
+  --content-wide: 1200px;
+
+  /* Easing */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in:  cubic-bezier(0.4, 0, 1, 1);
+  --transition-interactive: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ========== BASE RESET ========== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  min-height: 100dvh;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--quantum-white);
+  background-color: var(--deep-space);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img, picture, video, canvas, svg { display: block; max-width: 100%; height: auto; }
+h1, h2, h3, h4 { text-wrap: balance; line-height: 1.15; font-family: var(--font-display); }
+p, li, figcaption { text-wrap: pretty; max-width: 72ch; }
+a { color: var(--solar-gold); text-decoration: none; transition: color var(--transition-interactive); }
+a:hover { color: var(--plasma-amber); }
+button { cursor: pointer; background: none; border: none; font: inherit; color: inherit; }
+
+::selection {
+  background: rgba(212, 160, 23, 0.25);
+  color: var(--quantum-white);
+}
+
+:focus-visible {
+  outline: 2px solid var(--solar-gold);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0;
+}
+
+/* ========== NAVIGATION ========== */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: var(--space-4) var(--space-6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.4s ease, box-shadow 0.4s ease, padding 0.4s ease;
+}
+
+.nav--scrolled {
+  background: rgba(10, 10, 15, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 1px 0 rgba(212, 160, 23, 0.1);
+  padding: var(--space-3) var(--space-6);
+}
+
+.nav__logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: var(--text-sm);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--quantum-white);
+}
+
+.nav__logo svg {
+  width: 32px;
+  height: 32px;
+}
+
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  list-style: none;
+}
+
+.nav__links a {
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--lattice-gray);
+  transition: color var(--transition-interactive);
+}
+
+.nav__links a:hover {
+  color: var(--quantum-white);
+}
+
+.nav__cta {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-2) var(--space-5);
+  border: 1px solid var(--solar-gold);
+  border-radius: 9999px;
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--solar-gold) !important;
+  transition: all var(--transition-interactive);
+}
+
+.nav__cta:hover {
+  background: var(--solar-gold);
+  color: var(--deep-space) !important;
+}
+
+.nav__hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: var(--space-2);
+}
+
+.nav__hamburger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--quantum-white);
+  transition: all 0.3s ease;
+}
+
+/* Mobile nav */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+  background: rgba(10, 10, 15, 0.98);
+  backdrop-filter: blur(24px);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
+}
+
+.mobile-menu.active {
+  display: flex;
+}
+
+.mobile-menu a {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  color: var(--quantum-white);
+}
+
+@media (max-width: 768px) {
+  .nav__links { display: none; }
+  .nav__hamburger { display: flex; }
+}
+
+/* ========== HERO SECTION ========== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  padding: var(--space-8);
+}
+
+.hero__canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+}
+
+.hero__logo-mark {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto var(--space-8);
+  opacity: 0.9;
+}
+
+.hero__title {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(2rem, 1rem + 4.5vw, 5.5rem);
+  line-height: 1.1;
+  color: var(--quantum-white);
+  margin-bottom: var(--space-6);
+  letter-spacing: -0.02em;
+}
+
+.hero__title em {
+  font-style: normal;
+  color: var(--solar-gold);
+}
+
+.hero__subtitle {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(1.5rem, 0.8rem + 3vw, 3.5rem);
+  line-height: 1.15;
+  color: var(--lattice-gray);
+  margin-bottom: var(--space-10);
+}
+
+.hero__spectrum {
+  width: 100%;
+  max-width: 500px;
+  height: 2px;
+  margin: 0 auto var(--space-10);
+  background: linear-gradient(90deg,
+    var(--spectrum-violet),
+    var(--spectrum-blue),
+    var(--spectrum-green),
+    var(--spectrum-gold),
+    var(--spectrum-red)
+  );
+  border-radius: 2px;
+  opacity: 0;
+  animation: spectrumReveal 2s ease-out 1s forwards;
+}
+
+@keyframes spectrumReveal {
+  0% { opacity: 0; width: 0; }
+  100% { opacity: 1; width: 100%; }
+}
+
+.hero__tagline {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 300;
+  color: var(--lattice-gray);
+  letter-spacing: 0.05em;
+}
+
+.hero__scroll {
+  position: absolute;
+  bottom: var(--space-8);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--lattice-gray);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.1em;
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+.hero__scroll svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--lattice-gray);
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.4; transform: translateX(-50%) translateY(0); }
+  50% { opacity: 0.8; transform: translateX(-50%) translateY(4px); }
+}
+
+/* ========== SECTION STYLES ========== */
+.section {
+  position: relative;
+  padding: clamp(var(--space-16), 8vw, var(--space-32)) clamp(var(--space-4), 4vw, var(--space-12));
+}
+
+.section__container {
+  max-width: var(--content-wide);
+  margin: 0 auto;
+}
+
+.section__label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 400;
+  color: var(--solar-gold);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-6);
+}
+
+.section__heading {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--text-2xl);
+  line-height: 1.15;
+  color: var(--quantum-white);
+  margin-bottom: var(--space-8);
+}
+
+.section__heading em {
+  font-style: normal;
+  color: var(--solar-gold);
+}
+
+.section__text {
+  font-size: var(--text-base);
+  color: rgba(240, 237, 230, 0.75);
+  line-height: 1.7;
+  max-width: 60ch;
+}
+
+.section__text strong {
+  color: var(--quantum-white);
+  font-weight: 500;
+}
+
+.section__divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--solar-gold), transparent);
+  opacity: 0.3;
+  margin: 0;
+}
+
+/* Gold line separator */
+.gold-line {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212, 160, 23, 0.4), transparent);
+}
+
+/* ========== PROBLEM SECTION ========== */
+.problem {
+  background: var(--deep-space);
+}
+
+.problem__grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: var(--space-16);
+  align-items: center;
+}
+
+.problem__text .highlight {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--text-base);
+  color: rgba(240, 237, 230, 0.65);
+  line-height: 1.7;
+  margin-top: var(--space-6);
+}
+
+.problem__text .highlight strong {
+  color: var(--quantum-white);
+  font-weight: 500;
+}
+
+/* Spectrum visualization */
+.spectrum-viz {
+  position: relative;
+  padding: var(--space-8);
+  border: 1px solid rgba(107, 107, 123, 0.2);
+  border-radius: 12px;
+  background: var(--carbon);
+}
+
+.spectrum-bar {
+  position: relative;
+  height: 48px;
+  border-radius: 6px;
+  margin-bottom: var(--space-6);
+  overflow: hidden;
+  background: rgba(107, 107, 123, 0.1);
+}
+
+.spectrum-bar__fill {
+  height: 100%;
+  border-radius: 6px;
+  transition: width 1.5s var(--ease-out);
+}
+
+.spectrum-bar--silicon .spectrum-bar__fill {
+  width: 0;
+  background: linear-gradient(90deg, #444, #666);
+}
+
+.spectrum-bar--silicon.animated .spectrum-bar__fill {
+  width: 20%;
+}
+
+.spectrum-bar--graphene .spectrum-bar__fill {
+  width: 0;
+  background: linear-gradient(90deg,
+    var(--spectrum-violet),
+    var(--spectrum-blue),
+    var(--spectrum-green),
+    var(--spectrum-gold),
+    var(--spectrum-red)
+  );
+}
+
+.spectrum-bar--graphene.animated .spectrum-bar__fill {
+  width: 100%;
+}
+
+.spectrum-bar__label {
+  position: absolute;
+  top: 50%;
+  left: var(--space-4);
+  transform: translateY(-50%);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--quantum-white);
+  z-index: 1;
+}
+
+.spectrum-bar__value {
+  position: absolute;
+  top: 50%;
+  right: var(--space-4);
+  transform: translateY(-50%);
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--quantum-white);
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .problem__grid { grid-template-columns: 1fr; gap: var(--space-8); }
+}
+
+/* ========== SCIENCE SECTION ========== */
+.science {
+  background: var(--carbon);
+}
+
+.science__panels {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+}
+
+.science__panel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
+  align-items: center;
+  padding: var(--space-10);
+  border: 1px solid rgba(107, 107, 123, 0.15);
+  border-radius: 16px;
+  background: rgba(10, 10, 15, 0.5);
+}
+
+.science__panel:nth-child(even) {
+  direction: rtl;
+}
+
+.science__panel:nth-child(even) > * {
+  direction: ltr;
+}
+
+.science__panel-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--solar-gold);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-3);
+}
+
+.science__panel-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--text-xl);
+  color: var(--quantum-white);
+  margin-bottom: var(--space-4);
+}
+
+.science__panel-text {
+  font-size: var(--text-base);
+  color: rgba(240, 237, 230, 0.7);
+  line-height: 1.7;
+}
+
+.science__panel-text strong {
+  color: var(--quantum-white);
+  font-weight: 500;
+}
+
+/* Big voltage display */
+.voltage-display {
+  text-align: center;
+}
+
+.voltage-display__number {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(5rem, 3rem + 8vw, 10rem);
+  line-height: 1;
+  background: linear-gradient(135deg, var(--solar-gold), var(--plasma-amber));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.voltage-display__unit {
+  font-family: var(--font-mono);
+  font-size: var(--text-lg);
+  color: var(--lattice-gray);
+  letter-spacing: 0.1em;
+  margin-top: var(--space-2);
+}
+
+/* Voltage comparison */
+.voltage-compare {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-8);
+  justify-content: center;
+  padding-top: var(--space-8);
+}
+
+.voltage-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.voltage-bar__bar {
+  width: 60px;
+  border-radius: 4px 4px 0 0;
+  transition: height 1.5s var(--ease-out);
+}
+
+.voltage-bar--silicon .voltage-bar__bar {
+  height: 0;
+  background: var(--lattice-gray);
+}
+
+.voltage-bar--silicon.animated .voltage-bar__bar {
+  height: 40px;
+}
+
+.voltage-bar--graphene .voltage-bar__bar {
+  height: 0;
+  background: linear-gradient(180deg, var(--solar-gold), var(--plasma-amber));
+  box-shadow: 0 0 30px rgba(212, 160, 23, 0.3);
+}
+
+.voltage-bar--graphene.animated .voltage-bar__bar {
+  height: 220px;
+}
+
+.voltage-bar__label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--lattice-gray);
+}
+
+.voltage-bar__value {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  color: var(--quantum-white);
+}
+
+/* Validation metrics */
+.validation-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+
+.validation-card {
+  text-align: center;
+  padding: var(--space-6) var(--space-4);
+  border: 1px solid rgba(107, 107, 123, 0.15);
+  border-radius: 12px;
+  background: rgba(26, 26, 34, 0.5);
+}
+
+.validation-card__number {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-2xl);
+  color: var(--solar-gold);
+  line-height: 1.2;
+}
+
+.validation-card__label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--lattice-gray);
+  margin-top: var(--space-1);
+}
+
+@media (max-width: 768px) {
+  .science__panel {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    padding: var(--space-6);
+  }
+  .science__panel:nth-child(even) { direction: ltr; }
+  .validation-grid { grid-template-columns: 1fr; }
+}
+
+/* ========== COMPARISON SECTION ========== */
+.comparison {
+  background: var(--deep-space);
+}
+
+.comparison__table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 var(--space-2);
+}
+
+.comparison__table thead th {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--text-lg);
+  padding: var(--space-4) var(--space-6);
+  text-align: left;
+}
+
+.comparison__table thead th:first-child {
+  color: var(--lattice-gray);
+  width: 25%;
+}
+
+.comparison__table thead th:nth-child(2) {
+  color: var(--lattice-gray);
+  width: 37.5%;
+}
+
+.comparison__table thead th:nth-child(3) {
+  color: var(--solar-gold);
+  width: 37.5%;
+}
+
+.comparison__table tbody td {
+  padding: var(--space-4) var(--space-6);
+  font-size: var(--text-base);
+  border-top: 1px solid rgba(107, 107, 123, 0.1);
+}
+
+.comparison__table tbody td:first-child {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--lattice-gray);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.comparison__table tbody td:nth-child(2) {
+  color: rgba(240, 237, 230, 0.5);
+}
+
+.comparison__table tbody td:nth-child(3) {
+  color: var(--quantum-white);
+  font-weight: 500;
+}
+
+.comparison__table .highlight-value {
+  color: var(--solar-gold);
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+.comparison__note {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-style: italic;
+  color: var(--lattice-gray);
+  text-align: center;
+  margin-top: var(--space-8);
+}
+
+/* Mobile comparison */
+@media (max-width: 768px) {
+  .comparison__table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .comparison__table { min-width: 600px; }
+}
+
+/* ========== KNOXUS AI SECTION ========== */
+.knoxus {
+  background: var(--carbon);
+}
+
+.knoxus__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-16);
+  align-items: center;
+}
+
+/* Timeline viz */
+.timeline-viz {
+  position: relative;
+  padding: var(--space-8);
+}
+
+.timeline-path {
+  position: relative;
+  height: 300px;
+}
+
+.timeline-path__track {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(107, 107, 123, 0.3);
+}
+
+.timeline-path__traditional {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.timeline-path__traditional-line {
+  position: absolute;
+  bottom: 60px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--lattice-gray);
+  opacity: 0.4;
+}
+
+.timeline-path__traditional-label {
+  position: absolute;
+  bottom: 70px;
+  right: 0;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--lattice-gray);
+}
+
+.timeline-path__ai {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.timeline-path__ai-curve {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 30%;
+  height: 250px;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 100%;
+  border-right: 3px solid var(--solar-gold);
+  border-top: 3px solid var(--solar-gold);
+  box-shadow: 0 -4px 20px rgba(212, 160, 23, 0.3);
+}
+
+.timeline-path__ai-label {
+  position: absolute;
+  top: var(--space-4);
+  left: 15%;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--solar-gold);
+  font-weight: 500;
+}
+
+.timeline-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--space-4);
+}
+
+.timeline-labels span {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--lattice-gray);
+}
+
+.knoxus__stat {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-6);
+  padding: var(--space-3) var(--space-5);
+  background: rgba(212, 160, 23, 0.1);
+  border: 1px solid rgba(212, 160, 23, 0.2);
+  border-radius: 8px;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--solar-gold);
+}
+
+@media (max-width: 768px) {
+  .knoxus__grid { grid-template-columns: 1fr; }
+}
+
+/* ========== STAIRCASE SECTION ========== */
+.staircase {
+  background: var(--deep-space);
+}
+
+.staircase__viz {
+  position: relative;
+  padding: var(--space-8) 0;
+}
+
+.staircase__steps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.staircase__step {
+  display: grid;
+  grid-template-columns: 36px 1fr auto;
+  gap: var(--space-4);
+  align-items: center;
+  padding: var(--space-4) var(--space-6);
+  border-radius: 12px;
+  border: 1px solid rgba(107, 107, 123, 0.1);
+  background: var(--carbon);
+  transition: all 0.5s var(--ease-out);
+}
+
+.staircase__step--completed {
+  border-color: rgba(212, 160, 23, 0.25);
+}
+
+.staircase__step--active {
+  border-color: var(--solar-gold);
+  background: rgba(212, 160, 23, 0.08);
+  box-shadow: 0 0 30px rgba(212, 160, 23, 0.1);
+}
+
+.staircase__step--future {
+  opacity: 0.4;
+}
+
+.staircase__icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.staircase__step--completed .staircase__icon {
+  background: rgba(74, 222, 128, 0.15);
+  color: var(--success-green);
+}
+
+.staircase__step--active .staircase__icon {
+  background: rgba(212, 160, 23, 0.2);
+  color: var(--solar-gold);
+  animation: activePulse 2s ease-in-out infinite;
+}
+
+.staircase__step--future .staircase__icon {
+  background: rgba(107, 107, 123, 0.15);
+  color: var(--lattice-gray);
+}
+
+@keyframes activePulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(212, 160, 23, 0.3); }
+  50% { box-shadow: 0 0 20px 4px rgba(212, 160, 23, 0.15); }
+}
+
+.staircase__label {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: 400;
+  color: var(--quantum-white);
+}
+
+.staircase__step--active .staircase__label {
+  color: var(--solar-gold);
+  font-weight: 500;
+}
+
+.staircase__step--future .staircase__label {
+  color: var(--lattice-gray);
+}
+
+.staircase__status {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.staircase__step--completed .staircase__status { color: var(--success-green); }
+.staircase__step--active .staircase__status { color: var(--solar-gold); }
+.staircase__step--future .staircase__status { color: var(--lattice-gray); }
+
+.staircase__cta-text {
+  text-align: center;
+  margin-top: var(--space-10);
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 400;
+  color: rgba(240, 237, 230, 0.7);
+}
+
+.staircase__cta-text strong {
+  color: var(--solar-gold);
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .staircase__step {
+    grid-template-columns: 28px 1fr;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+  }
+  .staircase__status { grid-column: 2; font-size: 11px; }
+}
+
+/* ========== TEAM SECTION ========== */
+.team {
+  background: var(--carbon);
+}
+
+.team__grid {
+  display: grid;
+  grid-template-columns: 1.3fr 0.85fr 0.85fr;
+  gap: var(--space-6);
+}
+
+.team__card {
+  padding: var(--space-8);
+  border: 1px solid rgba(107, 107, 123, 0.15);
+  border-radius: 16px;
+  background: rgba(10, 10, 15, 0.5);
+  display: flex;
+  flex-direction: column;
+}
+
+.team__card--featured {
+  border-color: rgba(212, 160, 23, 0.2);
+  background: linear-gradient(135deg, rgba(212, 160, 23, 0.05), rgba(10, 10, 15, 0.5));
+}
+
+.team__avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  margin-bottom: var(--space-6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 300;
+}
+
+.team__card--featured .team__avatar {
+  background: linear-gradient(135deg, rgba(212, 160, 23, 0.2), rgba(212, 160, 23, 0.05));
+  border: 1px solid rgba(212, 160, 23, 0.3);
+  color: var(--solar-gold);
+}
+
+.team__card:not(.team__card--featured) .team__avatar {
+  background: rgba(107, 107, 123, 0.1);
+  border: 1px solid rgba(107, 107, 123, 0.2);
+  color: var(--lattice-gray);
+}
+
+.team__quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--text-lg);
+  color: var(--solar-gold);
+  line-height: 1.4;
+  margin-bottom: var(--space-6);
+}
+
+.team__name {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--text-lg);
+  color: var(--quantum-white);
+  margin-bottom: var(--space-1);
+}
+
+.team__role {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--solar-gold);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-4);
+}
+
+.team__bio {
+  font-size: var(--text-sm);
+  color: rgba(240, 237, 230, 0.6);
+  line-height: 1.7;
+  flex-grow: 1;
+}
+
+.team__bio strong {
+  color: rgba(240, 237, 230, 0.85);
+  font-weight: 500;
+}
+
+/* Dieter timeline */
+.team__timeline {
+  display: flex;
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+  padding-top: var(--space-4);
+  border-top: 1px solid rgba(107, 107, 123, 0.15);
+  flex-wrap: wrap;
+}
+
+.team__timeline-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.team__timeline-year {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--solar-gold);
+}
+
+.team__timeline-event {
+  font-family: var(--font-body);
+  font-size: 11px;
+  color: var(--lattice-gray);
+  text-align: center;
+  max-width: 80px;
+}
+
+@media (max-width: 768px) {
+  .team__grid { grid-template-columns: 1fr; }
+}
+
+/* ========== VISION SECTION ========== */
+.vision {
+  background: var(--deep-space);
+  position: relative;
+  overflow: hidden;
+}
+
+.vision::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 80%, rgba(212, 160, 23, 0.04), transparent 70%);
+  pointer-events: none;
+}
+
+.vision__content {
+  position: relative;
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.vision__heading {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: var(--text-2xl);
+  color: var(--quantum-white);
+  margin-bottom: var(--space-12);
+  letter-spacing: 0.02em;
+}
+
+.vision__text {
+  font-family: var(--font-serif);
+  font-size: clamp(1.15rem, 0.9rem + 0.8vw, 1.5rem);
+  color: rgba(240, 237, 230, 0.75);
+  line-height: 1.8;
+  margin-bottom: var(--space-8);
+}
+
+.vision__text .gold {
+  color: var(--solar-gold);
+}
+
+.vision__text .emphasis {
+  color: var(--quantum-white);
+  font-weight: 600;
+}
+
+.vision__break {
+  width: 48px;
+  height: 1px;
+  background: var(--solar-gold);
+  margin: var(--space-10) auto;
+  opacity: 0.5;
+}
+
+/* ========== CTA SECTION ========== */
+.cta {
+  background: var(--carbon);
+  text-align: center;
+}
+
+.cta__heading {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--text-2xl);
+  color: var(--quantum-white);
+  margin-bottom: var(--space-4);
+}
+
+.cta__text {
+  font-size: var(--text-base);
+  color: rgba(240, 237, 230, 0.65);
+  max-width: 56ch;
+  margin: 0 auto var(--space-10);
+  line-height: 1.7;
+}
+
+.cta__buttons {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-8);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-8);
+  border-radius: 9999px;
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: all var(--transition-interactive);
+}
+
+.btn--primary {
+  background: var(--solar-gold);
+  color: var(--deep-space);
+}
+
+.btn--primary:hover {
+  background: var(--plasma-amber);
+  color: var(--deep-space);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 24px rgba(212, 160, 23, 0.3);
+}
+
+.btn--outline {
+  border: 1px solid var(--solar-gold);
+  color: var(--solar-gold);
+}
+
+.btn--outline:hover {
+  background: rgba(212, 160, 23, 0.1);
+  color: var(--solar-gold);
+}
+
+.cta__email {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--lattice-gray);
+}
+
+.cta__email a {
+  color: var(--solar-gold);
+}
+
+/* ========== FOOTER ========== */
+.footer {
+  background: var(--deep-space);
+  padding: var(--space-12) clamp(var(--space-4), 4vw, var(--space-12));
+  text-align: center;
+  border-top: 1px solid rgba(107, 107, 123, 0.1);
+}
+
+.footer__logo {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: var(--text-sm);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--quantum-white);
+  margin-bottom: var(--space-6);
+}
+
+.footer__links {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-6);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-6);
+}
+
+.footer__links a {
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--lattice-gray);
+}
+
+.footer__links a:hover {
+  color: var(--quantum-white);
+}
+
+.footer__copyright {
+  font-size: var(--text-xs);
+  color: var(--lattice-dim);
+  margin-bottom: var(--space-4);
+}
+
+.footer__attribution a {
+  font-size: var(--text-xs);
+  color: var(--lattice-dim);
+}
+
+.footer__attribution a:hover {
+  color: var(--lattice-gray);
+}
+
+/* ========== SCROLL ANIMATIONS ========== */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Counter animation target */
+.counter {
+  display: inline-block;
+}
+
+/* ========== HEX PATTERN BACKGROUND ========== */
+.hex-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0.04;
+}
+
+.hex-bg svg {
+  width: 100%;
+  height: 100%;
+}
+</style>
+</head>
+
+<body>
+  <!-- Skip Link -->
+  <a href="#main" class="sr-only" style="position:fixed;top:0;left:0;z-index:200;background:var(--solar-gold);color:var(--deep-space);padding:8px 16px;">Skip to content</a>
+
+  <!-- ========== NAVIGATION ========== -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a href="#" class="nav__logo" aria-label="Graphene Solar Home">
+      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M20 4L33.3 11.7V27.3L20 35L6.7 27.3V11.7L20 4Z" stroke="#D4A017" stroke-width="1.2" fill="none"/>
+        <path d="M20 11L27.6 15.4V24.1L20 28.5L12.4 24.1V15.4L20 11Z" stroke="#D4A017" stroke-width="0.8" fill="none" opacity="0.6"/>
+        <path d="M20 17L23.5 19V23L20 25L16.5 23V19L20 17Z" stroke="#D4A017" stroke-width="0.6" fill="none" opacity="0.35"/>
+        <circle cx="20" cy="20" r="2" fill="#D4A017" opacity="0.5"/>
+      </svg>
+      <span>Graphene Solar</span>
+    </a>
+
+    <ul class="nav__links" role="list">
+      <li><a href="#technology">Technology</a></li>
+      <li><a href="#science">Science</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#vision">Vision</a></li>
+      <li><a href="#contact" class="nav__cta">Partner With Us</a></li>
+    </ul>
+
+    <button class="nav__hamburger" aria-label="Open menu" aria-expanded="false" onclick="toggleMobileMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Navigation menu">
+    <a href="#technology" onclick="closeMobileMenu()">Technology</a>
+    <a href="#science" onclick="closeMobileMenu()">Science</a>
+    <a href="#team" onclick="closeMobileMenu()">Team</a>
+    <a href="#vision" onclick="closeMobileMenu()">Vision</a>
+    <a href="#contact" class="nav__cta" onclick="closeMobileMenu()">Partner With Us</a>
+  </div>
+
+  <main id="main">
+
+    <!-- ========== HERO ========== -->
+    <section class="hero" id="hero" aria-label="Hero">
+      <canvas class="hero__canvas" id="heroCanvas" aria-hidden="true"></canvas>
+
+      <div class="hero__content">
+        <svg class="hero__logo-mark" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M32 6L55 19.3V45.7L32 59L9 45.7V19.3L32 6Z" stroke="#D4A017" stroke-width="1" fill="none" opacity="0.7"/>
+          <path d="M32 16L45 23.5V38.5L32 46L19 38.5V23.5L32 16Z" stroke="#D4A017" stroke-width="0.7" fill="none" opacity="0.45"/>
+          <path d="M32 25L38 28.5V35.5L32 39L26 35.5V28.5L32 25Z" stroke="#D4A017" stroke-width="0.5" fill="none" opacity="0.25"/>
+          <circle cx="32" cy="32" r="3" fill="#D4A017" opacity="0.6"/>
+        </svg>
+
+        <h1 class="hero__title">
+          Graphene absorbs light across<br>the <em>full solar spectrum.</em>
+        </h1>
+        <p class="hero__subtitle">Silicon cannot.</p>
+        <div class="hero__spectrum" aria-hidden="true"></div>
+        <p class="hero__tagline">The next paradigm in solar energy.</p>
+      </div>
+
+      <div class="hero__scroll" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M12 5v14M5 12l7 7 7-7"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ========== THE PROBLEM ========== -->
+    <div class="gold-line"></div>
+    <section class="section problem" id="technology" aria-label="The Problem">
+      <div class="section__container">
+        <div class="problem__grid">
+          <div class="problem__text reveal">
+            <span class="section__label">The Problem</span>
+            <h2 class="section__heading">The Sun Delivers More Energy in <em>One Hour</em> Than Humanity Uses in a Year</h2>
+            <p class="section__text">Silicon solar cells capture less than 20% of the light spectrum. After 70 years of optimization, they are approaching their theoretical limit.</p>
+            <p class="highlight" style="margin-top: var(--space-6);">
+              <strong>The world does not need better silicon.</strong><br>
+              It needs a fundamentally different material.
+            </p>
+          </div>
+          <div class="spectrum-viz reveal" aria-label="Solar spectrum comparison">
+            <p style="font-family: var(--font-mono); font-size: var(--text-xs); color: var(--lattice-gray); margin-bottom: var(--space-6); letter-spacing: 0.1em; text-transform: uppercase;">Spectrum Capture Comparison</p>
+            <div class="spectrum-bar spectrum-bar--silicon" id="siliconBar">
+              <div class="spectrum-bar__fill"></div>
+              <span class="spectrum-bar__label">Silicon</span>
+              <span class="spectrum-bar__value">~20%</span>
+            </div>
+            <div class="spectrum-bar spectrum-bar--graphene" id="grapheneBar">
+              <div class="spectrum-bar__fill"></div>
+              <span class="spectrum-bar__label">Graphene</span>
+              <span class="spectrum-bar__value">Full Spectrum</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-top: var(--space-4);">
+              <span style="font-family: var(--font-mono); font-size: 11px; color: var(--spectrum-violet);">UV</span>
+              <span style="font-family: var(--font-mono); font-size: 11px; color: var(--spectrum-blue);">Visible</span>
+              <span style="font-family: var(--font-mono); font-size: 11px; color: var(--spectrum-red);">Infrared</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== THE SCIENCE ========== -->
+    <div class="gold-line"></div>
+    <section class="section science" id="science" aria-label="The Science">
+      <div class="section__container">
+        <span class="section__label reveal">The Science</span>
+        <div class="science__panels">
+
+          <!-- Panel 1: Physics -->
+          <div class="science__panel reveal">
+            <div>
+              <span class="science__panel-label">Physics</span>
+              <h3 class="science__panel-title">Full-Spectrum Absorption</h3>
+              <p class="science__panel-text">
+                Graphene is a single layer of carbon atoms arranged in a hexagonal lattice. Its unique electronic band structure allows it to absorb photons across the <strong>entire electromagnetic spectrum</strong> — from ultraviolet through infrared.
+              </p>
+              <p class="science__panel-text" style="margin-top: var(--space-4); color: var(--solar-gold); font-weight: 500;">
+                No other known material does this.
+              </p>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: center;">
+              <svg viewBox="0 0 200 200" width="200" height="200" aria-hidden="true">
+                <!-- Animated hex lattice with photon absorption -->
+                <defs>
+                  <linearGradient id="photonGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#3D1F8A"/>
+                    <stop offset="25%" stop-color="#1A6AFF"/>
+                    <stop offset="50%" stop-color="#0FA573"/>
+                    <stop offset="75%" stop-color="#D4A017"/>
+                    <stop offset="100%" stop-color="#C8102E"/>
+                  </linearGradient>
+                </defs>
+                <!-- Hex pattern -->
+                <g stroke="#D4A017" stroke-width="0.5" fill="none" opacity="0.3">
+                  <polygon points="100,30 130,47 130,83 100,100 70,83 70,47"/>
+                  <polygon points="100,100 130,117 130,153 100,170 70,153 70,117"/>
+                  <polygon points="40,65 70,82 70,118 40,135 10,118 10,82"/>
+                  <polygon points="160,65 190,82 190,118 160,135 130,118 130,82"/>
+                </g>
+                <!-- Central glow -->
+                <circle cx="100" cy="100" r="20" fill="url(#photonGrad)" opacity="0.15">
+                  <animate attributeName="r" values="15;25;15" dur="3s" repeatCount="indefinite"/>
+                  <animate attributeName="opacity" values="0.1;0.25;0.1" dur="3s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="100" cy="100" r="6" fill="#D4A017" opacity="0.6"/>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Panel 2: Engineering -->
+          <div class="science__panel reveal">
+            <div>
+              <span class="science__panel-label">Engineering</span>
+              <h3 class="science__panel-title">3.5V Demonstrated</h3>
+              <p class="science__panel-text">
+                Our graphene-nanotech solar cell has produced <strong>3.5 volts from a single junction</strong> — 4 to 6 times the voltage of any conventional silicon cell.
+              </p>
+              <p class="science__panel-text" style="margin-top: var(--space-4);">
+                This result has been <strong>independently validated</strong>.
+              </p>
+            </div>
+            <div>
+              <div class="voltage-display">
+                <div class="voltage-display__number counter" data-target="3.5">0</div>
+                <div class="voltage-display__unit">Volts — Single Junction</div>
+              </div>
+              <div class="voltage-compare">
+                <div class="voltage-bar voltage-bar--silicon" id="voltBarSilicon">
+                  <div class="voltage-bar__value">~0.6V</div>
+                  <div class="voltage-bar__bar"></div>
+                  <div class="voltage-bar__label">Silicon</div>
+                </div>
+                <div class="voltage-bar voltage-bar--graphene" id="voltBarGraphene">
+                  <div class="voltage-bar__value" style="color: var(--solar-gold);">3.5V</div>
+                  <div class="voltage-bar__bar"></div>
+                  <div class="voltage-bar__label">Graphene</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 3: Validation -->
+          <div class="science__panel reveal">
+            <div>
+              <span class="science__panel-label">Validation</span>
+              <h3 class="science__panel-title">Independently Verified</h3>
+              <p class="science__panel-text">
+                <strong>Northwestern University:</strong> Scaled results 100x.<br>
+                <strong>University of Illinois Chicago:</strong> Independent validation.
+              </p>
+              <p class="science__panel-text" style="margin-top: var(--space-4);">
+                6 granted patents. 3 pending.
+              </p>
+              <p class="science__panel-text" style="margin-top: var(--space-4); color: var(--solar-gold); font-weight: 500;">
+                This is not theoretical. It is demonstrated.
+              </p>
+            </div>
+            <div class="validation-grid">
+              <div class="validation-card">
+                <div class="validation-card__number counter" data-target="100" data-suffix="x">0</div>
+                <div class="validation-card__label">Scaled at Northwestern</div>
+              </div>
+              <div class="validation-card">
+                <div class="validation-card__number counter" data-target="6">0</div>
+                <div class="validation-card__label">Patents Granted</div>
+              </div>
+              <div class="validation-card">
+                <div class="validation-card__number" style="color: var(--solar-gold);">$2.2M</div>
+                <div class="validation-card__label">Seed Capital Raised</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== COMPARISON ========== -->
+    <div class="gold-line"></div>
+    <section class="section comparison" aria-label="Silicon vs Graphene Comparison">
+      <div class="section__container">
+        <span class="section__label reveal">The Advantage</span>
+        <h2 class="section__heading reveal">Silicon vs. <em>Graphene</em></h2>
+
+        <div class="comparison__table-wrap reveal">
+          <table class="comparison__table" role="table">
+            <thead>
+              <tr>
+                <th scope="col">Metric</th>
+                <th scope="col">Silicon</th>
+                <th scope="col">Graphene</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Spectrum Capture</td>
+                <td>~20%</td>
+                <td><span class="highlight-value">Full Spectrum</span></td>
+              </tr>
+              <tr>
+                <td>Voltage (single junction)</td>
+                <td>~0.6V</td>
+                <td><span class="highlight-value">3.5V demonstrated</span></td>
+              </tr>
+              <tr>
+                <td>Theoretical Efficiency</td>
+                <td>~29% (Shockley-Queisser)</td>
+                <td><span class="highlight-value">80%+</span> (no SQ limit)</td>
+              </tr>
+              <tr>
+                <td>Material Properties</td>
+                <td>Rigid, heavy, brittle</td>
+                <td>Flexible, lightweight, strongest known</td>
+              </tr>
+              <tr>
+                <td>Degradation</td>
+                <td>Degrades over 25 years</td>
+                <td>Carbon-based stability</td>
+              </tr>
+              <tr>
+                <td>Architecture</td>
+                <td>Complex multi-junction</td>
+                <td>Single-layer simplicity</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="comparison__note reveal">Silicon has had 70 years of optimization. Graphene solar is just beginning.</p>
+      </div>
+    </section>
+
+    <!-- ========== KNOXUS AI PARTNERSHIP ========== -->
+    <div class="gold-line"></div>
+    <section class="section knoxus" aria-label="Knoxus AI Partnership">
+      <div class="section__container">
+        <div class="knoxus__grid">
+          <div class="reveal">
+            <span class="section__label">The Partnership</span>
+            <h2 class="section__heading">AI-Accelerated <em>Materials Science</em></h2>
+            <p class="section__text">
+              Traditional deep tech R&D takes 10-20 years from lab breakthrough to commercial scale.
+            </p>
+            <p class="section__text" style="margin-top: var(--space-4);">
+              We are partnering with <strong>Knoxus</strong> — a causal materials science AI company — to <strong>collapse that timeline to 24 months.</strong>
+            </p>
+            <p class="section__text" style="margin-top: var(--space-4);">
+              Causal AI does not just predict. It explains <strong>why</strong> materials behave as they do, enabling targeted optimization at speeds impossible for human researchers alone.
+            </p>
+            <div class="knoxus__stat">
+              $300M+ invested in AI materials discovery in 2024-2025
+            </div>
+          </div>
+
+          <div class="reveal">
+            <div class="timeline-viz">
+              <p style="font-family: var(--font-mono); font-size: var(--text-xs); color: var(--lattice-gray); margin-bottom: var(--space-6); letter-spacing: 0.1em; text-transform: uppercase;">Time to Commercialization</p>
+              <div class="timeline-path">
+                <!-- Traditional slow line -->
+                <div class="timeline-path__traditional">
+                  <div class="timeline-path__traditional-line"></div>
+                  <div class="timeline-path__traditional-label">Traditional R&D: 10-20 years</div>
+                </div>
+                <!-- AI accelerated curve -->
+                <div class="timeline-path__ai">
+                  <div class="timeline-path__ai-curve"></div>
+                  <div class="timeline-path__ai-label">AI-Accelerated: ~24 months</div>
+                </div>
+              </div>
+              <div class="timeline-labels">
+                <span>Lab Proof</span>
+                <span>Scalable Production</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== RISK RETIREMENT STAIRCASE ========== -->
+    <div class="gold-line"></div>
+    <section class="section staircase" aria-label="Risk Retirement Staircase">
+      <div class="section__container">
+        <span class="section__label reveal">Milestones</span>
+        <h2 class="section__heading reveal">Risk Retirement <em>Staircase</em></h2>
+
+        <div class="staircase__viz">
+          <div class="staircase__steps">
+            <div class="staircase__step staircase__step--completed reveal">
+              <div class="staircase__icon">&#10003;</div>
+              <div class="staircase__label">Proof of Concept — 3.5V Demonstrated</div>
+              <div class="staircase__status">Completed</div>
+            </div>
+            <div class="staircase__step staircase__step--completed reveal">
+              <div class="staircase__icon">&#10003;</div>
+              <div class="staircase__label">Independent Validation — UIC</div>
+              <div class="staircase__status">Completed</div>
+            </div>
+            <div class="staircase__step staircase__step--completed reveal">
+              <div class="staircase__icon">&#10003;</div>
+              <div class="staircase__label">$2.2M Seed Capital Raised</div>
+              <div class="staircase__status">Completed</div>
+            </div>
+            <div class="staircase__step staircase__step--completed reveal">
+              <div class="staircase__icon">&#10003;</div>
+              <div class="staircase__label">IP Protection — 6 Patents Granted, 3 Pending</div>
+              <div class="staircase__status">Completed</div>
+            </div>
+            <div class="staircase__step staircase__step--active reveal">
+              <div class="staircase__icon">&#9670;</div>
+              <div class="staircase__label">Knoxus AI Partnership — Current Raise</div>
+              <div class="staircase__status">Active</div>
+            </div>
+            <div class="staircase__step staircase__step--future reveal">
+              <div class="staircase__icon">&#9675;</div>
+              <div class="staircase__label">Scalable Reproduction of Results</div>
+              <div class="staircase__status">Upcoming</div>
+            </div>
+            <div class="staircase__step staircase__step--future reveal">
+              <div class="staircase__icon">&#9675;</div>
+              <div class="staircase__label">Pilot Production Line</div>
+              <div class="staircase__status">Upcoming</div>
+            </div>
+            <div class="staircase__step staircase__step--future reveal">
+              <div class="staircase__icon">&#9675;</div>
+              <div class="staircase__label">First Commercial Deployment</div>
+              <div class="staircase__status">Upcoming</div>
+            </div>
+          </div>
+        </div>
+
+        <p class="staircase__cta-text reveal">
+          Every milestone de-risks the next. We have completed four. <strong>Fund the fifth.</strong>
+        </p>
+      </div>
+    </section>
+
+    <!-- ========== TEAM ========== -->
+    <div class="gold-line"></div>
+    <section class="section team" id="team" aria-label="Leadership Team">
+      <div class="section__container">
+        <span class="section__label reveal">Leadership</span>
+        <h2 class="section__heading reveal">The <em>Team</em></h2>
+
+        <div class="team__grid">
+          <!-- Dieter -->
+          <div class="team__card team__card--featured reveal">
+            <div class="team__avatar">DG</div>
+            <p class="team__quote">"From splitting the atom to harnessing the sun."</p>
+            <h3 class="team__name">Dr. Dieter Gruen</h3>
+            <div class="team__role">Chief Scientist</div>
+            <p class="team__bio">
+              <strong>Mentored by Enrico Fermi</strong> at the University of Chicago. Manhattan Project-adjacent scientist. 102 years old, still active. Spent a lifetime at Argonne National Laboratory. Inventor of the ultrananocrystalline diamond film. <strong>The living bridge between the atomic age and the solar age.</strong>
+            </p>
+            <div class="team__timeline">
+              <div class="team__timeline-item">
+                <span class="team__timeline-year">1920s</span>
+                <span class="team__timeline-event">Born</span>
+              </div>
+              <div class="team__timeline-item">
+                <span class="team__timeline-year">1940s</span>
+                <span class="team__timeline-event">Fermi / UChicago</span>
+              </div>
+              <div class="team__timeline-item">
+                <span class="team__timeline-year">1950s+</span>
+                <span class="team__timeline-event">Argonne National Lab</span>
+              </div>
+              <div class="team__timeline-item">
+                <span class="team__timeline-year">1990s</span>
+                <span class="team__timeline-event">Diamond Film</span>
+              </div>
+              <div class="team__timeline-item">
+                <span class="team__timeline-year">Now</span>
+                <span class="team__timeline-event">Graphene Solar</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Jeff -->
+          <div class="team__card reveal">
+            <div class="team__avatar">JG</div>
+            <h3 class="team__name">Jeff Gruen</h3>
+            <div class="team__role">CEO</div>
+            <p class="team__bio">
+              Physician-entrepreneur driving commercialization and strategic partnerships. Managing multiple ventures simultaneously with a focus on translating breakthrough science into scalable commercial reality.
+            </p>
+          </div>
+
+          <!-- Sahlman -->
+          <div class="team__card reveal">
+            <div class="team__avatar">WS</div>
+            <h3 class="team__name">William Sahlman</h3>
+            <div class="team__role">Strategic Advisor</div>
+            <p class="team__bio">
+              <strong>Harvard Business School</strong> professor. One of the world's foremost experts on venture capital and entrepreneurial finance. Author of seminal works on how VCs evaluate deals.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== VISION ========== -->
+    <div class="gold-line"></div>
+    <section class="section vision" id="vision" aria-label="Vision and Manifesto">
+      <div class="section__container">
+        <div class="vision__content">
+          <h2 class="vision__heading reveal">The Second Sunrise</h2>
+
+          <p class="vision__text reveal">
+            The sun delivers enough energy in one hour to power civilization for a year.
+          </p>
+
+          <p class="vision__text reveal">
+            For 70 years, silicon has been our best attempt to capture it. But silicon was always a compromise — a material that sees only a fraction of the light.
+          </p>
+
+          <p class="vision__text reveal">
+            <span class="gold">Graphene sees all of it.</span>
+          </p>
+
+          <p class="vision__text reveal">
+            One atom thick. Stronger than steel. The most conductive material known to science. And it absorbs every wavelength the sun can deliver.
+          </p>
+
+          <div class="vision__break reveal" aria-hidden="true"></div>
+
+          <p class="vision__text reveal">
+            <span class="emphasis">This is not an improvement.<br>This is a new beginning.</span>
+          </p>
+
+          <p class="vision__text reveal">
+            Dr. Dieter Gruen survived the era that split the atom. Now, at 102, he offers humanity a different kind of power — not the destructive force of fission, but the redemptive promise of the sun.
+          </p>
+
+          <div class="vision__break reveal" aria-hidden="true"></div>
+
+          <p class="vision__text reveal">
+            We are seeking partners in this mission. Not just investors — architects of the future.
+          </p>
+
+          <p class="vision__text reveal" style="margin-top: var(--space-6);">
+            <span class="gold">The sun has been waiting.</span><br>
+            <span class="emphasis">Graphene is ready.</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CTA ========== -->
+    <div class="gold-line"></div>
+    <section class="section cta" id="contact" aria-label="Call to Action">
+      <div class="section__container">
+        <h2 class="cta__heading reveal">Partner With Us</h2>
+        <p class="cta__text reveal">
+          Graphene Solar is raising capital to fund the Knoxus AI partnership and accelerate the path from demonstrated breakthrough to scalable production.
+        </p>
+        <div class="cta__buttons reveal">
+          <a href="mailto:invest@graphene-solar.net" class="btn btn--primary">Partner With Us &rarr;</a>
+          <a href="mailto:invest@graphene-solar.net?subject=Investor%20Overview%20Request" class="btn btn--outline">Request Overview &rarr;</a>
+        </div>
+        <p class="cta__email reveal">
+          For investor inquiries: <a href="mailto:invest@graphene-solar.net" target="_blank" rel="noopener noreferrer">invest@graphene-solar.net</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="gold-line" style="margin-bottom: var(--space-8);"></div>
+    <div class="footer__logo">Graphene Solar</div>
+    <div class="footer__links">
+      <a href="#technology">Technology</a>
+      <a href="#science">Science</a>
+      <a href="#team">Team</a>
+      <a href="#vision">Vision</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <p class="footer__copyright">&copy; 2026 Graphene Solar. All rights reserved.</p>
+    <div class="footer__attribution">
+      <a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer">Created with Perplexity Computer</a>
+    </div>
+  </footer>
+
+  <!-- ========== SCRIPTS ========== -->
+  <script>
+  // ===== MOBILE MENU =====
+  function toggleMobileMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const btn = document.querySelector('.nav__hamburger');
+    const isActive = menu.classList.toggle('active');
+    btn.setAttribute('aria-expanded', isActive);
+    document.body.style.overflow = isActive ? 'hidden' : '';
+  }
+  function closeMobileMenu() {
+    document.getElementById('mobileMenu').classList.remove('active');
+    document.querySelector('.nav__hamburger').setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  // ===== HERO CANVAS — Animated Graphene Lattice =====
+  (function() {
+    const canvas = document.getElementById('heroCanvas');
+    const ctx = canvas.getContext('2d');
+    let w, h, hexSize, cols, rows, mouse = { x: -1000, y: -1000 };
+    let time = 0;
+    let animFrameId;
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isMobile = window.innerWidth < 768;
+
+    function resize() {
+      w = canvas.width = canvas.offsetWidth;
+      h = canvas.height = canvas.offsetHeight;
+      hexSize = isMobile ? 30 : 40;
+      const hexW = hexSize * Math.sqrt(3);
+      const hexH = hexSize * 1.5;
+      cols = Math.ceil(w / hexW) + 2;
+      rows = Math.ceil(h / hexH) + 2;
+    }
+
+    function drawHex(cx, cy, size, alpha, glow) {
+      ctx.beginPath();
+      for (let i = 0; i < 6; i++) {
+        const angle = (Math.PI / 3) * i - Math.PI / 6;
+        const x = cx + size * Math.cos(angle);
+        const y = cy + size * Math.sin(angle);
+        if (i === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      }
+      ctx.closePath();
+      ctx.strokeStyle = `rgba(212, 160, 23, ${alpha})`;
+      ctx.lineWidth = 0.5;
+      ctx.stroke();
+
+      if (glow > 0.01) {
+        ctx.fillStyle = `rgba(212, 160, 23, ${glow * 0.08})`;
+        ctx.fill();
+      }
+    }
+
+    function draw() {
+      time += 0.005;
+      ctx.clearRect(0, 0, w, h);
+
+      const hexW = hexSize * Math.sqrt(3);
+      const hexH = hexSize * 1.5;
+      const offsetX = -hexW;
+      const offsetY = -hexH;
+
+      for (let row = 0; row < rows; row++) {
+        for (let col = 0; col < cols; col++) {
+          let cx = offsetX + col * hexW + (row % 2 === 1 ? hexW / 2 : 0);
+          let cy = offsetY + row * hexH;
+
+          // Mouse interaction
+          const dx = mouse.x - cx;
+          const dy = mouse.y - cy;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          const mouseInfluence = Math.max(0, 1 - dist / 200);
+
+          // Wave pattern
+          const wave = Math.sin(cx * 0.008 + time * 2) * Math.cos(cy * 0.006 + time * 1.5);
+          const baseAlpha = 0.06 + wave * 0.03;
+          const alpha = Math.min(0.25, baseAlpha + mouseInfluence * 0.15);
+          const glow = mouseInfluence * 0.5 + Math.max(0, wave) * 0.3;
+
+          drawHex(cx, cy, hexSize, alpha, glow);
+        }
+      }
+
+      // Flowing energy effect — golden particles along hex bonds
+      if (!isMobile) {
+        for (let i = 0; i < 8; i++) {
+          const t = (time * 0.8 + i * 0.4) % 4;
+          const px = (w * 0.1 + t * w * 0.25) % w;
+          const py = h * 0.3 + Math.sin(t * 2 + i) * h * 0.2;
+          const pAlpha = 0.3 * Math.sin(t * Math.PI / 4);
+          if (pAlpha > 0) {
+            ctx.beginPath();
+            ctx.arc(px, py, 2 + pAlpha * 3, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(212, 160, 23, ${pAlpha})`;
+            ctx.fill();
+          }
+        }
+      }
+
+      if (!prefersReduced) {
+        animFrameId = requestAnimationFrame(draw);
+      }
+    }
+
+    canvas.addEventListener('mousemove', (e) => {
+      const rect = canvas.getBoundingClientRect();
+      mouse.x = e.clientX - rect.left;
+      mouse.y = e.clientY - rect.top;
+    });
+
+    canvas.addEventListener('mouseleave', () => {
+      mouse.x = -1000;
+      mouse.y = -1000;
+    });
+
+    window.addEventListener('resize', () => {
+      cancelAnimationFrame(animFrameId);
+      resize();
+      if (!prefersReduced) draw();
+    });
+
+    resize();
+    if (prefersReduced) {
+      // Draw once for reduced motion
+      time = 1;
+      draw();
+    } else {
+      draw();
+    }
+  })();
+
+  // ===== SCROLL-TRIGGERED ANIMATIONS =====
+  document.addEventListener('DOMContentLoaded', function() {
+    // Wait for GSAP
+    function initAnimations() {
+      if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+        setTimeout(initAnimations, 100);
+        return;
+      }
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Reveal elements
+      const reveals = document.querySelectorAll('.reveal');
+      reveals.forEach((el, i) => {
+        gsap.fromTo(el,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: el,
+              start: 'top 85%',
+              once: true
+            }
+          }
+        );
+      });
+
+      // Spectrum bars animation
+      ScrollTrigger.create({
+        trigger: '#siliconBar',
+        start: 'top 80%',
+        once: true,
+        onEnter: () => {
+          document.getElementById('siliconBar').classList.add('animated');
+          setTimeout(() => {
+            document.getElementById('grapheneBar').classList.add('animated');
+          }, 400);
+        }
+      });
+
+      // Voltage bars animation
+      ScrollTrigger.create({
+        trigger: '#voltBarSilicon',
+        start: 'top 80%',
+        once: true,
+        onEnter: () => {
+          document.getElementById('voltBarSilicon').classList.add('animated');
+          setTimeout(() => {
+            document.getElementById('voltBarGraphene').classList.add('animated');
+          }, 400);
+        }
+      });
+
+      // Counter animations
+      const counters = document.querySelectorAll('.counter[data-target]');
+      counters.forEach(counter => {
+        const target = parseFloat(counter.dataset.target);
+        const suffix = counter.dataset.suffix || '';
+        const isDecimal = target % 1 !== 0;
+
+        ScrollTrigger.create({
+          trigger: counter,
+          start: 'top 85%',
+          once: true,
+          onEnter: () => {
+            gsap.to({ val: 0 }, {
+              val: target,
+              duration: 1.5,
+              ease: 'power3.out',
+              onUpdate: function() {
+                const v = this.targets()[0].val;
+                counter.textContent = isDecimal ? v.toFixed(1) : Math.round(v) + suffix;
+              }
+            });
+          }
+        });
+      });
+
+      // Nav scroll effect
+      ScrollTrigger.create({
+        start: 80,
+        onUpdate: (self) => {
+          const nav = document.querySelector('.nav');
+          if (self.progress > 0) {
+            nav.classList.add('nav--scrolled');
+          } else {
+            nav.classList.remove('nav--scrolled');
+          }
+        }
+      });
+    }
+
+    initAnimations();
+  });
+  </script>
+</body>
+</html>
